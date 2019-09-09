@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Doc Title -->
+    <title>Weather App</title>
+
+    <!-- Bootstrap and CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+
+<div class="container mt-5 text-center">
+
+    <!-- Title and form -->
+    <h1 class="display-2 text-light">Forecast</h1>
+    <h3 class="display-6 text-light">Please enter your location</h3>
+    <div class="row text-center">
+        <div class="col">
+            <input id="input" type="text" class="form-control-lg mx-auto border border-dark">
+        </div>
+    </div>
+    <div class="row text-center mt-3">
+        <div class="col-3 mx-auto">
+            <div id="run" class="btn btn-light">Search</div>
+        </div>
+    </div>
+
+    <!-- Display -->
+    <div id="target" class="mt-5 card-deck"></div>
+
+    <!-- Template -->
+    <template id="template">
+        <div class="card">
+            <div id="day" class="card-title"></div>
+            <img src="#" id="icon" class="card-img" alt="weather icon">
+            <div class="card-body">
+                <div id="weatherType">Placeholder</div>
+                <div id="temperature">Placeholder</div>
+            </div>
+        </div>
+    </template>
+
+</div>
+
+<!-- Link to JS file -->
+<script src="app.js"></script>
+</body>
+</html>

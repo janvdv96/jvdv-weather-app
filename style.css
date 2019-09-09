@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: url("src/sky-clouds.jpg") no-repeat;
+    background-size: cover;
+}
+
+.btn{
+    cursor: pointer;
+}
+
+.jumbotron{
+    background: none;
+}
+
+#day{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#icon{
+    margin: 10px auto;
+    width: 75px;
+    border-radius: 50%;
+}
+
+#temperature{
+    font-size: 26px;
+    font-weight: bold;
+}
+
+#target{
+    height: 300px;
+}
