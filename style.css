@@ -1,32 +1,45 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background: url("src/sky-clouds.jpg") no-repeat;
     background-size: cover;
 }
 
-.btn{
+.card-deck {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    grid-gap: .5rem;
+}
+
+.btn {
     cursor: pointer;
 }
 
-#day{
+#day {
     font-size: 28px;
     font-weight: bold;
 }
 
-#icon{
+#icon {
     margin: 10px auto;
     width: 75px;
 }
 
-#temperature{
+#temperature {
     font-size: 26px;
     font-weight: bold;
 }
 
-#target{
+.card {
+    background-color: rgba(255, 255, 255, 0.5);
+}
 
+#picture{
+}
+
+#imgTarget{
+    width: 500px;
 }

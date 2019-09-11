@@ -2,12 +2,16 @@ const btnRun = document.getElementById("run");
 const input = document.getElementById("input");
 const display = document.getElementById("target");
 
+const pictureDisplay = document.getElementById("picture");
+const imgDisplay = document.getElementById("imgTarget");
+
 const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 
 btnRun.addEventListener("click", function () {
     let city = input.value;
     fetcher(city);
+    picture(city);
 });
 
 function fetcher(city) {
@@ -15,9 +19,9 @@ function fetcher(city) {
         .then(function (response) {
             return response.json();
         }).then(function (weather) {
+        let list = weather.list;
 
         display.innerHTML = "";
-        let list = weather.list;
         console.log(list);
 
         let dataWeather = [];
@@ -35,7 +39,6 @@ function fetcher(city) {
         let fiveTemps = [];
 
         let date = new Date();
-        let TODAY = date.getDate();
 
         let myDate = new Date();
         let twoDay = new Date();
@@ -55,9 +58,6 @@ function fetcher(city) {
             let fullDateYear = parseInt("" + fullDateText.slice(0, 4));
             let fullDateDay = parseInt("" + fullDateText.slice(8, 10));
             let fullDateMonth = parseInt("" + fullDateText.slice(5, 7));
-
-            let dateNumber = parseInt((list[i].dt_txt).slice(8, 10));
-
             let checker = new Date(fullDateYear, fullDateMonth - 1, fullDateDay);
             let checkDay = checker.getDay();
 
@@ -137,8 +137,21 @@ function fetcher(city) {
             let clone = temp.content.cloneNode(true);
             display.appendChild(clone);
         }
-
-
     });
+}
+
+function picture(city) {
+    fetch("https://api.unsplash.com/search/photos/?client_id=e74ca46b22fd8cbf5fbb5c231739839cb4730ae959f74a65d24583789012d6c3&page=1&query=" + city)
+        .then(function (response) {
+            return response.json()
+        }).then(function (pictures) {
+        console.log(pictures);
+
+        let random = Math.floor(Math.random() * 10);
+        console.log(random);
+
+        imgDisplay.setAttribute("src", pictures.results[random].urls.regular);
+
+    })
 }
 

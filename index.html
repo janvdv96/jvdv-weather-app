@@ -20,7 +20,7 @@
 <body>
 
 
-<div class="container mt-3 text-center">
+<div class="container mt-3 text-center p-3">
 
     <!-- Title and form -->
     <h1 class="display-2 text-light">Forecast</h1>
@@ -37,12 +37,12 @@
     </div>
 
     <!-- Display -->
-    <div id="target" class="mt-3 card-deck"></div>
+    <div id="target" class="mt-5 card-deck mx-auto"></div>
 
     <!-- Template -->
     <template id="template">
         <div class="card border border-dark">
-            <div id="day" class="card-title mt-3"></div>
+            <div id="day" class="card-title mt-4"></div>
             <img src="#" id="icon" class="card-img" alt="weather icon">
             <div class="card-body">
                 <div id="weatherType">Placeholder</div>
@@ -52,6 +52,11 @@
             </div>
         </div>
     </template>
+
+    <!-- Unsplash Random Picture -->
+    <picture id="picture" class="">
+        <img id="imgTarget" src="#" alt="unsplash image" class="border border-black mt-5">
+    </picture>
 
 </div>
 
