@@ -35,46 +35,54 @@ function fetcher(city) {
         let fiveTemps = [];
 
         let date = new Date();
-
         let TODAY = date.getDate();
-        let MONTH = date.getMonth() + 1;
-        let YEAR = date.getFullYear();
 
-        //console.log(("0" + MONTH).slice(-2));
-
-        let fullDateToday = YEAR + ("0" + MONTH).slice(-2) + TODAY;
-        //console.log("fullDateToday:" + fullDateToday);
+        let myDate = new Date();
+        let twoDay = new Date();
+        twoDay.setDate(myDate.getDate() + 1);
+        let threeDay = new Date();
+        threeDay.setDate(twoDay.getDate() + 1);
+        let fourDay = new Date();
+        fourDay.setDate(threeDay.getDate() + 1);
+        let fiveDay = new Date();
+        fiveDay.setDate(fourDay.getDate() + 1);
+        let sixDay = new Date();
+        sixDay.setDate(fiveDay.getDate() + 1);
 
         for (let i = 0; i < list.length; i++) {
 
             let fullDateText = (list[i].dt_txt).slice(0, 10);
-            let fullDateYear = fullDateText.slice(0, 4);
+            let fullDateYear = parseInt("" + fullDateText.slice(0, 4));
             let fullDateDay = parseInt("" + fullDateText.slice(8, 10));
             let fullDateMonth = parseInt("" + fullDateText.slice(5, 7));
 
             let dateNumber = parseInt((list[i].dt_txt).slice(8, 10));
 
+            let checker = new Date(fullDateYear, fullDateMonth - 1, fullDateDay);
+            let checkDay = checker.getDay();
+
             let weatherPush = list[i].weather[0].main;
             let tempPush = list[i].main.temp;
 
-            if (dateNumber === TODAY) {
+            if (checkDay === myDate.getDay()) {
                 oneWeather.push(weatherPush);
                 oneTemps.push(tempPush);
-            } else if (dateNumber === TODAY + 1) {
+            } else if (checkDay === twoDay.getDay()) {
                 twoWeather.push(weatherPush);
                 twoTemps.push(tempPush);
-            } else if (dateNumber === TODAY + 2) {
+            } else if (checkDay === threeDay.getDay()) {
                 threeWeather.push(weatherPush);
                 threeTemps.push(tempPush);
-            } else if (dateNumber === TODAY + 3) {
+            } else if (checkDay === fourDay.getDay()) {
                 fourWeather.push(weatherPush);
                 fourTemps.push(tempPush);
-            } else if (dateNumber === TODAY + 4) {
+            } else if (checkDay === fiveDay.getDay()) {
                 fiveWeather.push(weatherPush);
                 fiveTemps.push(tempPush);
-            } else if (dateNumber === TODAY + 5) {
+            } else if (checkDay === sixDay.getDay()) {
                 console.log("leftovers");
             }
+
         }
 
         dataWeather = [oneWeather, twoWeather, threeWeather, fourWeather, fiveWeather];
