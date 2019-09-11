@@ -11,7 +11,7 @@ btnRun.addEventListener("click", function () {
 });
 
 function fetcher(city) {
-    fetch("http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&appid=2cd6b9eab7541a2c6346e5fb3a63c539")
+    fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&appid=2cd6b9eab7541a2c6346e5fb3a63c539")
         .then(function (response) {
             return response.json();
         }).then(function (weather) {
