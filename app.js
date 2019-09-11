@@ -2,7 +2,6 @@ const btnRun = document.getElementById("run");
 const input = document.getElementById("input");
 const display = document.getElementById("target");
 
-const pictureDisplay = document.getElementById("picture");
 const imgDisplay = document.getElementById("imgTarget");
 
 const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -130,6 +129,10 @@ function fetcher(city) {
                     weatherIcon.setAttribute("src", "src/raining.png");
                     break;
 
+                case "Snow":
+                    weatherIcon.setAttribute("src", "src/snowflake.png");
+                    break;
+
                 default:
                     weatherIcon.setAttribute("src", "https://via.placeholder.com/64");
             }
@@ -147,10 +150,11 @@ function picture(city) {
         }).then(function (pictures) {
         console.log(pictures);
 
-        let random = Math.floor(Math.random() * 10);
+        let random = Math.floor(Math.random() * 10) + 1;
         console.log(random);
 
-        imgDisplay.setAttribute("src", pictures.results[random].urls.regular);
+        imgDisplay.style.background = "url('" + pictures.results[random].urls.regular + "') no-repeat center center";
+        imgDisplay.style.display = "block";
 
     })
 }
