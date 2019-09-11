@@ -20,33 +20,35 @@
 <body>
 
 
-<div class="container mt-5 text-center">
+<div class="container mt-3 text-center">
 
     <!-- Title and form -->
     <h1 class="display-2 text-light">Forecast</h1>
     <h3 class="display-6 text-light">Please enter your location</h3>
-    <div class="row text-center">
+    <div class="form-row text-center">
         <div class="col">
             <input id="input" type="text" class="form-control-lg mx-auto border border-dark">
         </div>
     </div>
-    <div class="row text-center mt-3">
+    <div class="form-row text-center mt-3">
         <div class="col-3 mx-auto">
-            <div id="run" class="btn btn-light">Search</div>
+            <div id="run" class="btn btn-outline-light">Search</div>
         </div>
     </div>
 
     <!-- Display -->
-    <div id="target" class="mt-5 card-deck"></div>
+    <div id="target" class="mt-3 card-deck"></div>
 
     <!-- Template -->
     <template id="template">
-        <div class="card">
-            <div id="day" class="card-title"></div>
+        <div class="card border border-dark">
+            <div id="day" class="card-title mt-3"></div>
             <img src="#" id="icon" class="card-img" alt="weather icon">
             <div class="card-body">
                 <div id="weatherType">Placeholder</div>
                 <div id="temperature">Placeholder</div>
+                <div id="mintemperature">Placeholder</div>
+                <div id="maxtemperature">Placeholder</div>
             </div>
         </div>
     </template>
