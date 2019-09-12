@@ -1,11 +1,8 @@
 const btnRun = document.getElementById("run");
 const input = document.getElementById("input");
 const display = document.getElementById("target");
-
 const imgDisplay = document.getElementById("imgTarget");
-
 const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
 
 btnRun.addEventListener("click", function () {
     let city = input.value;
@@ -19,9 +16,9 @@ function fetcher(city) {
             return response.json();
         }).then(function (weather) {
         let list = weather.list;
+        console.log(list);
 
         display.innerHTML = "";
-        console.log(list);
 
         let dataWeather = [];
         let dataTemps = [];
@@ -38,7 +35,6 @@ function fetcher(city) {
         let fiveTemps = [];
 
         let date = new Date();
-
         let myDate = new Date();
         let twoDay = new Date();
         twoDay.setDate(myDate.getDate() + 1);
@@ -116,27 +112,21 @@ function fetcher(city) {
             mintemperatureText.innerText = "min: " + minTemp + " °C";
 
             switch (avgWeather) {
-
                 case "Clouds":
                     weatherIcon.setAttribute("src", "src/cloud.png");
                     break;
-
                 case "Clear":
                     weatherIcon.setAttribute("src", "src/sun.png");
                     break;
-
                 case "Rain":
                     weatherIcon.setAttribute("src", "src/raining.png");
                     break;
-
                 case "Snow":
                     weatherIcon.setAttribute("src", "src/snowflake.png");
                     break;
-
                 default:
                     weatherIcon.setAttribute("src", "https://via.placeholder.com/64");
             }
-
             let clone = temp.content.cloneNode(true);
             display.appendChild(clone);
         }
@@ -150,12 +140,10 @@ function picture(city) {
         }).then(function (pictures) {
         console.log(pictures);
 
-        let random = Math.floor(Math.random() * 10) + 1;
+        let random = Math.floor(Math.random() * pictures.results.length);
         console.log(random);
 
         imgDisplay.style.background = "url('" + pictures.results[random].urls.regular + "') no-repeat center center";
         imgDisplay.style.display = "block";
-
     })
 }
-
